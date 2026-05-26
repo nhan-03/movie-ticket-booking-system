@@ -39,20 +39,22 @@ Represents a movie genre category.
 ### movies
 Stores movie information.
 
-| Field | Type        | Constraints | Description                        |
-|---|-------------|---|------------------------------------|
-| id | BIGINT      | PK, AUTO_INCREMENT | Movie identifier                   |
-| title | VARCHAR(255) | NOT NULL | Movie title                        |
-| description | TEXT        | NULL | Movie description                  |
-| duration | INT         | NOT NULL | Duration in minutes                |
-| language | VARCHAR(50) | NOT NULL | Movie language                     |
-| release_date | DATE        | NOT NULL | Release date                       |
-| poster_url | VARCHAR(500) | NULL | Poster URL                         |
-| trailer_url | VARCHAR(500) | NULL | Trailer URL                        |
-| age_rating | VARCHAR(10) | NOT NULL | Age restriction                    |
-| status | ENUM        | NOT NULL | COMMING_SOON / NOW_SHOWING / ENDED |
-| created_at | TIMESTAMP   | NOT NULL | Created time                       |
-| updated_at | TIMESTAMP   | NOT NULL | Updated time                       |
+| Field              | Type        | Constraints | Description                        |
+|--------------------|-------------|---|------------------------------------|
+| id                 | BIGINT      | PK, AUTO_INCREMENT | Movie identifier                   |
+| title              | VARCHAR(255) | NOT NULL | Movie title                        |
+| description        | TEXT        | NULL | Movie description                  |
+| synopsis           | TEXT        | NULL | Movie synopsis                     |
+| duration           | INT         | NOT NULL | Duration in minutes                |
+| production_country | VARCHAR(50) | NOT NULL | Movie production country           |
+| release_date       | DATE        | NOT NULL | Release date                       |
+| poster_url         | VARCHAR(500) | NULL | Poster URL                         |
+| translation_type   | ENUM        | NOT NULL | SUBTITLE / DUBBED                  |
+| trailer_url        | VARCHAR(500) | NULL | Trailer URL                        |
+| age_rating         | VARCHAR(10) | NOT NULL | Age restriction                    |
+| status             | ENUM        | NOT NULL | COMMING_SOON / NOW_SHOWING / ENDED |
+| created_at         | TIMESTAMP   | NOT NULL | Created time                       |
+| updated_at         | TIMESTAMP   | NOT NULL | Updated time                       |
 
 ---
 
@@ -138,11 +140,11 @@ Stores booking transactions.
 ### booking_seats
 Stores selected seats in a booking.
 
-| Field | Type | Constraints | Description |
-|---|---|---|---|
+| Field      | Type | Constraints | Description |
+|------------|---|---|---|
 | booking_id | BIGINT | PK, FK | Booking identifier |
-| seat_id | BIGINT | PK, FK | Seat identifier |
-| price | DECIMAL(10,2) | NOT NULL | Seat price |
+| seat_id    | BIGINT | PK, FK | Seat identifier |
+| seat_price | DECIMAL(10,2) | NOT NULL | Seat price |
 
 ---
 
