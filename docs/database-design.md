@@ -41,18 +41,18 @@ Represents a movie genre category.
 ### movies
 Stores movie information.
 
-| Field              | Type         | Constraints | Description              |
-|--------------------|--------------|---|--------------------------|
-| id                 | BIGINT       | PK, AUTO_INCREMENT | Movie identifier         |
-| title              | VARCHAR(255) | NOT NULL | Movie title              |
-| duration_minutes   | INT          | NOT NULL | Duration in minutes      |
-| production_country | VARCHAR(50)  | NOT NULL | Movie production country |
-| translation_type   | ENUM         | NOT NULL | SUBTITLE / DUBBED        |
-| age_rating         | ENUM         | NOT NULL | P / C13 / C16 / C18      |
-| director           | VARCHAR(150) | NOT NULL | Movie director           |
-| actors             | VARCHAR(500) | NOT NULL | Movie actors             |
+| Field              | Type         | Constraints | Description                        |
+|--------------------|--------------|---|------------------------------------|
+| id                 | BIGINT       | PK, AUTO_INCREMENT | Movie identifier                   |
+| title              | VARCHAR(255) | NOT NULL | Movie title                        |
+| duration_minutes   | INT          | NOT NULL | Duration in minutes                |
+| production_country | VARCHAR(50)  | NOT NULL | Movie production country           |
+| translation_type   | ENUM         | NOT NULL | SUBTITLE / DUBBED                  |
+| age_rating         | ENUM         | NOT NULL | P / T13 / T16 / T18                |
+| director           | VARCHAR(150) | NOT NULL | Movie director                     |
+| actors             | VARCHAR(500) | NOT NULL | Movie actors                       |
 | release_date       | DATE        | NOT NULL | Release date                       |
-| synopsis           | TEXT         | NOT NULL | Movie synopsis           |
+| synopsis           | TEXT         | NOT NULL | Movie synopsis                     |
 | poster_url         | VARCHAR(500) | NULL | Poster URL                         |
 | trailer_url        | VARCHAR(500) | NULL | Trailer URL                        |
 | status             | ENUM        | NOT NULL | COMMING_SOON / NOW_SHOWING / ENDED |
