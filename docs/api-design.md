@@ -10,9 +10,9 @@ Request
 
 ```json
 {
+  "fullName": "Khong Huu Nhan",
   "email": "nhan@gmail.com",
   "password": "123456",
-  "fullName": "Khong Huu Nhan",
   "phoneNumber": "0862840490"
 }
 ```
@@ -22,8 +22,8 @@ Response
 ```json
 {
   "id": 1,
-  "email": "nhan@gmail.com",
   "fullName": "Khong Huu Nhan",
+  "email": "nhan@gmail.com",
   "role": "USER"
 }
 ```
@@ -87,8 +87,8 @@ Response
 ```json
 {
   "id": 1,
-  "email": "nhan@gmail.com",
   "fullName": "Khong Huu Nhan",
+  "email": "nhan@gmail.com",
   "phoneNumber": "0862840490",
   "role": "USER",
   "status": "ACTIVE"
@@ -115,8 +115,8 @@ Response
 ```json
 {
   "id": 1,
-  "email": "nhan@gmail.com",
   "fullName": "Nguyen Hoang Nhat",
+  "email": "nhan@gmail.com",
   "phoneNumber": "0378150550"
 }
 ```
@@ -150,7 +150,7 @@ Response
 
 ### Get All Movies
 
-GET /api/movies?page=1&size=10&keyword=avengers&genre=Action&sortBy=releaseDate&direction=desc
+GET /api/movies
 
 Response
 
@@ -159,27 +159,29 @@ Response
   "content": [
     {
       "id": 1,
-      "title": "Avengers: Endgame",
-      "duration": 181,
-      "genre": "Action",
-      "language": "English",
-      "posterUrl": "https://image.tmdb.org/endgame.jpg",
-      "ageRating": "13+"
+      "title": "Phim điện ảnh Doraemon: Nobita và lâu đài dưới đáy biển",
+      "genres": ["Hoạt hình", "Phiêu lưu"],
+      "duration_minutes": 101,
+      "translation_type": "Nhật Bản",
+      "ageRating": "P",
+      "release_date": "2026-04-30",
+      "posterUrl": "https://d1j8pt39mxlh8d.cloudfront.net/...jpg",
+      "trailerUrl": "https://youtube.com/watch?v=zSWdZVtXT7E"
     },
     {
       "id": 2,
-      "title": "Spider-Man: No Way Home",
-      "duration": 148,
-      "genre": "Action",
-      "language": "English",
-      "posterUrl": "https://image.tmdb.org/spiderman.jpg",
-      "ageRating": "13+"
+      "title": "Ngôi đền kỳ quái",
+      "genres": ["Hài", "Kinh dị"],
+      "duration_minutes": 118,
+      "translation_type": "Thái Lan",
+      "ageRating": "T16",
+      "release_date": "2026-04-02",
+      "posterUrl": "https://d1j8pt39mxlh8d.cloudfront.net/...jpg",
+      "trailerUrl": "https://youtube.com/watch?v=zSWdZVtXT7E"
     }
   ],
   "page": 1,
-  "size": 10,
-  "totalElements": 120,
-  "totalPages": 12
+  "size": 2
 }
 ```
 
@@ -194,16 +196,17 @@ Response
 ```json
 {
   "id": 1,
-  "title": "Avengers: Endgame",
-  "description": "After the devastating events of Infinity War, the Avengers assemble once more to reverse Thanos's actions and restore balance to the universe.",
-  "duration": 181,
-  "genre": "Action",
-  "language": "English",
-  "releaseDate": "2019-04-26",
-  "posterUrl": "https://image.tmdb.org/endgame.jpg",
-  "trailerUrl": "https://youtube.com/watch?v=TcMBFSGVi1c",
-  "ageRating": "13+",
-  "status": "ACTIVE"
+  "title": "Phim điện ảnh Doraemon: Nobita và lâu đài dưới đáy biển",
+  "genres": ["Hoạt hình", "Phiêu lưu"],
+  "duration_minutes": 101,
+  "translation_type": "Nhật Bản",
+  "ageRating": "P",
+  "director": "Tetsuo Yajima",
+  "actors": "Wasabi Mizuta, Megumi Oohara, Yumi Kakazu, Subaru Kimura, Tomokazu Seki,...",
+  "release_date": "2026-04-30",
+  "synopsis": "Bước vào kì nghỉ hè, Nobita và các bạn tranh cãi chí chóe về địa điểm cắm trại. Theo đề xuất của Doraemon, cả nhóm quyết định cắm trại giữa lòng đại dương! Sử dụng bảo bối thần kì “xe Buggy chạy dưới nước” và “đèn pin thích nghi”, 5 bạn nhỏ tận hưởng chuyến cắm trại dưới đáy biển, gặp gỡ vô vàn sinh vật lí thú trên đường đi. Sau khi phát hiện một chiếc tàu đắm, nhóm bạn đã gặp chàng thanh niên bí ẩn El. Thật bất ngờ, anh ta lại là cư dân đáy biển, sống tại “liên bang Mu”, một vùng",
+  "posterUrl": "https://d1j8pt39mxlh8d.cloudfront.net/...jpg",
+  "trailerUrl": "https://youtube.com/watch?v=zSWdZVtXT7E"
 }
 ```
 
@@ -217,15 +220,14 @@ Request
 
 ```json
 {
-  "title": "Interstellar",
-  "description": "A team of explorers travel through a wormhole in space in an attempt to ensure humanity's survival.",
-  "duration": 169,
-  "genre": "Sci-Fi",
-  "language": "English",
-  "releaseDate": "2014-11-07",
-  "posterUrl": "https://image.tmdb.org/interstellar.jpg",
-  "trailerUrl": "https://youtube.com/watch?v=zSWdZVtXT7E",
-  "ageRating": "13+"
+  "title": "Phim điện ảnh Doraemon: Nobita và lâu đài dưới đáy biển",
+  "genres": ["Hoạt hình", "Phiêu lưu"],
+  "duration_minutes": 101,
+  "translation_type": "Nhật Bản",
+  "ageRating": "P",
+  "release_date": "2026-04-30",
+  "posterUrl": null,
+  "trailerUrl": null
 }
 ```
 
@@ -234,7 +236,7 @@ Response
 ```json
 {
   "id": 3,
-  "title": "Interstellar",
+  "title": "Phim điện ảnh Doraemon: Nobita và lâu đài dưới đáy biển",
   "status": "ACTIVE"
 }
 ```
@@ -249,8 +251,8 @@ Request
 
 ```json
 {
-  "duration": 170,
-  "genre": "Science Fiction"
+  "duration_minutes": 170,
+  "translation_type": "Thái Lan"
 }
 ```
 
@@ -259,9 +261,9 @@ Response
 ```json
 {
   "id": 3,
-  "title": "Interstellar",
-  "duration": 170,
-  "genre": "Science Fiction"
+  "title": "Phim điện ảnh Doraemon: Nobita và lâu đài dưới đáy biển",
+  "duration_minutes": 170,
+  "translation_type": "Thái Lan"
 }
 ```
 
@@ -302,34 +304,17 @@ Response
 [
   {
     "id": 1,
-    "name": "CGV Vincom Thu Duc",
-    "address": "216 Vo Van Ngan",
-    "city": "Ho Chi Minh City"
+    "name": "Cinema Quốc Thành",
+    "address": "271 Nguyễn Trãi, phường Cầu Ông Lãnh",
+    "city": "TP.HCM"
   },
   {
     "id": 2,
-    "name": "Lotte Cinema Binh Duong",
-    "address": "Aeon Mall Binh Duong",
-    "city": "Binh Duong"
+    "name": "Cinema Quận 6",
+    "address": "1446 Võ Văn Kiệt, phường Bình Tiên",
+    "city": "TP.HCM"
   }
 ]
-```
-
----
-
-### Get Cinema Detail
-
-GET /api/cinemas/1
-
-Response
-
-```json
-{
-  "id": 1,
-  "name": "CGV Vincom Thu Duc",
-  "address": "216 Vo Van Ngan",
-  "city": "Ho Chi Minh City"
-}
 ```
 
 ---
@@ -346,15 +331,15 @@ Response
 [
   {
     "id": 1,
-    "cinemaName": "CGV Vincom Thu Duc",
-    "roomName": "Room 1",
+    "cinemaName": "Cinema Quốc Thành",
+    "roomNumber": 1,
     "startTime": "2026-06-01T18:00:00",
     "endTime": "2026-06-01T21:01:00"
   },
   {
     "id": 2,
-    "cinemaName": "Lotte Cinema Binh Duong",
-    "roomName": "Room 3",
+    "cinemaName": "Cinema Quận 6",
+    "roomNumber": 2,
     "startTime": "2026-06-01T20:00:00",
     "endTime": "2026-06-01T23:01:00"
   }
@@ -438,7 +423,7 @@ Response
 
 ## Seat APIs
 
-### Get Available Seats
+### Get Seats By Showtime
 
 GET /api/showtimes/1/seats
 
@@ -450,7 +435,8 @@ Response
     "seatId": 1,
     "seatRow": "A",
     "seatNumber": 1,
-    "seatType": "NORMAL",
+    "seatType": "SINGLE",
+    "dayType": "WEEKDAY",
     "price": 80000,
     "available": true
   },
@@ -458,8 +444,9 @@ Response
     "seatId": 2,
     "seatRow": "A",
     "seatNumber": 2,
-    "seatType": "VIP",
-    "price": 120000,
+    "seatType": "COUPLE",
+    "dayType": "WEEKEND",
+    "price": 200000,
     "available": false
   }
 ]
@@ -478,7 +465,7 @@ Request
 ```json
 {
   "showtimeId": 1,
-  "seatIds": [1, 3]
+  "seatIds": [1, 2]
 }
 ```
 
@@ -497,7 +484,7 @@ Response
 
 ### Get My Bookings
 
-GET /api/bookings/me?page=1&size=10
+GET /api/bookings/me
 
 Response
 
@@ -516,11 +503,7 @@ Response
       "status": "PENDING",
       "totalPrice": 240000
     }
-  ],
-  "page": 1,
-  "size": 10,
-  "totalElements": 20,
-  "totalPages": 2
+  ]
 }
 ```
 
@@ -538,9 +521,9 @@ Response
   "bookingCode": "BK20260601001",
   "status": "PAID",
   "totalPrice": 160000,
-  "movieTitle": "Avengers: Endgame",
-  "cinemaName": "CGV Vincom Thu Duc",
-  "roomName": "Room 1",
+  "movieTitle": "Phim điện ảnh Doraemon: Nobita và lâu đài dưới đáy biển",
+  "cinemaName": "Cinema Quốc Thành",
+  "roomNumber": 1,
   "startTime": "2026-06-01T18:00:00",
   "seats": [
     {
@@ -550,7 +533,7 @@ Response
     },
     {
       "seatRow": "A",
-      "seatNumber": 3,
+      "seatNumber": 2,
       "price": 80000
     }
   ]
@@ -627,7 +610,7 @@ Response
 
 ### Get All Users
 
-GET /api/admin/users?page=1&size=10&keyword=nguyen
+GET /api/admin/users
 
 Response
 
@@ -648,11 +631,7 @@ Response
       "role": "USER",
       "status": "INACTIVE"
     }
-  ],
-  "page": 1,
-  "size": 10,
-  "totalElements": 50,
-  "totalPages": 5
+  ]
 }
 ```
 
@@ -671,7 +650,10 @@ Response
   "fullName": "Khong Huu Nhan",
   "phoneNumber": "0862840490",
   "role": "USER",
-  "status": "ACTIVE"
+  "status": "ACTIVE",
+  "bookingCount": 12,
+  "createdAt": "2026-05-01T10:00:00",
+  "updatedAt": "2026-05-20T15:30:00"
 }
 ```
 
@@ -702,25 +684,50 @@ Response
 
 ## Revenue APIs
 
-### Get Revenue Summary
+### Movie Performance Analytics
 
-GET /api/admin/revenue?from=2026-06-01&to=2026-06-30
+GET /api/admin/dashboard/movie-performance
+
+Purpose
+
+Used to evaluate the performance of currently showing movies and support business decisions such as increasing or reducing showtimes.
+
+Business Rules
+
+- Only movies with status `NOW_SHOWING` are included
+- Only movies that have been showing for 5–14 days are analyzed
+- Movies showing for too few days may not have enough data
+- Movies near the end of their lifecycle may naturally have lower demand
+
+Average Revenue Formula
+
+```text
+avgRevenue =
+totalRevenue / (daysShowing × showtimeCount)
+```
 
 Response
 
 ```json
-{
-  "totalRevenue": 250000000,
-  "totalBookings": 3200,
-  "successfulPayments": 3150
-}
+[
+  {
+    "movieId": 1,
+    "movieTitle": "Phim điện ảnh Doraemon: Nobita và lâu đài dưới đáy biển",
+    "avgRevenue": 4000000
+  },
+  {
+    "movieId": 2,
+    "movieTitle": "Ngôi đền kỳ quái",
+    "avgRevenue": 693333
+  }
+]
 ```
 
 ---
 
 ### Get Revenue By Month
 
-GET /api/admin/revenue/monthly?year=2026
+GET /api/admin/dashboard/revenue/monthly?year=2026
 
 Response
 
@@ -771,4 +778,4 @@ Authorization: Bearer <access-token>
 - Manage showtimes
 - Manage users
 - View bookings
-- View revenue
+- View dashboard
