@@ -89,14 +89,14 @@ Stores cinema branch information.
 ### rooms
 Stores screening rooms.
 
-| Field | Type | Constraints | Description |
-|---|---|---|---|
-| id | BIGINT | PK, AUTO_INCREMENT | Room identifier |
-| cinema_id | BIGINT | FK, NOT NULL | Cinema identifier |
-| name | VARCHAR(100) | NOT NULL | Room name |
-| capacity | INT | NOT NULL | Total seats |
-| created_at | TIMESTAMP | NOT NULL | Created time |
-| updated_at         | TIMESTAMP   | NOT NULL | Updated time                       |
+| Field       | Type      | Constraints | Description       |
+|-------------|-----------|---|-------------------|
+| id          | BIGINT    | PK, AUTO_INCREMENT | Room identifier   |
+| cinema_id   | BIGINT    | FK, NOT NULL | Cinema identifier |
+| room_number | int       | NOT NULL | Room number       |
+| capacity    | INT       | NOT NULL | Total seats       |
+| created_at  | TIMESTAMP | NOT NULL | Created time      |
+| updated_at  | TIMESTAMP | NOT NULL | Updated time      |
 
 ---
 
