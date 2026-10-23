@@ -1,28 +1,5 @@
 # Software Requirements Specification (SRS)
 
-## Table of Contents
-
-- [1. Introduction](#1-introduction)
-- [2. User Roles](#2-user-roles)
-- [3. Functional Requirements](#3-functional-requirements)
-    - [3.1 Authentication](#31-authentication)
-    - [3.2 User profile](#32-user-profile)
-    - [3.3 Movie](#33-movie)
-    - [3.4 Cinema](#34-cinema)
-    - [3.5 Showtime](#35-showtime)
-    - [3.6 Booking](#36-booking)
-    - [3.7 Payment](#37-payment)
-    - [3.8 Administration](#38-administration)
-        - [3.8.1 Movie management](#381-movie-management)
-        - [3.8.2 Movie genre management](#382-movie-genre-management)
-        - [3.8.3 Cinema management](#383-cinema-management)
-        - [3.8.4 Screening room management](#384-screening-room-management)
-        - [3.8.5 Showtime management](#385-showtime-management)
-        - [3.8.6 User management](#386-user-management)
-        - [3.8.7 Statistics](#387-statistics)
-        - [3.8.8 Pricing management](#388-pricing-management)
-- [4. Non-functional Requirements](#4-non-functional-requirements)
-
 ## 1. Introduction
 
 This document describes the functional and non-functional requirements for the **Movie Ticket Booking System**. It focuses on **what the system should do** rather than **how it will be implemented**.
@@ -90,6 +67,7 @@ This document describes the functional and non-functional requirements for the *
 - Create movie
 - Update movie
 - Change movie status
+- Upload poster
 
 #### 3.8.2 Movie genre management
 

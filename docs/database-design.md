@@ -41,23 +41,23 @@ Represents a movie genre category.
 ### movies
 Stores movie information.
 
-| Field              | Type         | Constraints | Description                        |
-|--------------------|--------------|---|------------------------------------|
+| Field              | Type         | Constraints        | Description                        |
+|--------------------|--------------|--------------------|------------------------------------|
 | id                 | BIGINT       | PK, AUTO_INCREMENT | Movie identifier                   |
-| title              | VARCHAR(255) | NOT NULL | Movie title                        |
-| duration_minutes   | INT          | NOT NULL | Duration in minutes                |
-| production_country | VARCHAR(50)  | NOT NULL | Movie production country           |
-| translation_type   | ENUM         | NOT NULL | SUBTITLE / DUBBED                  |
-| age_rating         | ENUM         | NOT NULL | P / T13 / T16 / T18                |
-| director           | VARCHAR(150) | NOT NULL | Movie director                     |
-| actors             | VARCHAR(500) | NOT NULL | Movie actors                       |
-| release_date       | DATE        | NOT NULL | Release date                       |
-| synopsis           | TEXT         | NOT NULL | Movie synopsis                     |
-| poster_url         | VARCHAR(500) | NULL | Poster URL                         |
-| trailer_url        | VARCHAR(500) | NULL | Trailer URL                        |
-| status             | ENUM        | NOT NULL | COMMING_SOON / NOW_SHOWING / ENDED |
-| created_at         | TIMESTAMP   | NOT NULL | Created time                       |
-| updated_at         | TIMESTAMP   | NOT NULL | Updated time                       |
+| title              | VARCHAR(255) | NOT NULL           | Movie title                        |
+| duration_minutes   | INT          | NOT NULL           | Duration in minutes                |
+| production_country | VARCHAR(50)  | NOT NULL           | Movie production country           |
+| translation_type   | ENUM         | NOT NULL           | SUBTITLE / DUBBED                  |
+| age_rating         | ENUM         | NOT NULL           | P / K / T13 / T16 / T18            |
+| director           | VARCHAR(150) | NOT NULL           | Movie director                     |
+| actors             | VARCHAR(500) | NOT NULL           | Movie actors                       |
+| release_date       | DATE        | NOT NULL           | Release date                       |
+| synopsis           | TEXT         | NOT NULL           | Movie synopsis                     |
+| poster_url         | VARCHAR(500) | NOT NULL           | Poster URL                         |
+| trailer_url        | VARCHAR(500) | NOT NULL           | Trailer URL                        |
+| status             | ENUM        | NOT NULL           | COMMING_SOON / NOW_SHOWING / ENDED |
+| created_at         | TIMESTAMP   | NOT NULL           | Created time                       |
+| updated_at         | TIMESTAMP   | NOT NULL           | Updated time                       |
 
 ---
 
@@ -118,59 +118,60 @@ Stores room seat information.
 ### showtimes
 Stores movie schedules.
 
-| Field | Type | Constraints | Description |
-|---|---|---|---|
-| id | BIGINT | PK, AUTO_INCREMENT | Showtime identifier |
-| movie_id | BIGINT | FK, NOT NULL | Movie identifier |
-| room_id | BIGINT | FK, NOT NULL | Room identifier |
-| start_time | TIMESTAMP | NOT NULL | Start time |
-| end_time | TIMESTAMP | NOT NULL | End time |
-| status | ENUM | NOT NULL | ACTIVE / CANCELLED |
-| created_at | TIMESTAMP | NOT NULL | Created time |
-| updated_at         | TIMESTAMP   | NOT NULL | Updated time                       |
+| Field | Type | Constraints | Description                       |
+|---|---|---|-----------------------------------|
+| id | BIGINT | PK, AUTO_INCREMENT | Showtime identifier               |
+| movie_id | BIGINT | FK, NOT NULL | Movie identifier                  |
+| room_id | BIGINT | FK, NOT NULL | Room identifier                   |
+| start_time | TIMESTAMP | NOT NULL | Start time                        |
+| end_time | TIMESTAMP | NOT NULL | End time                          |
+| status | ENUM | NOT NULL | AVAILABLED / COMPLETED / CANCELED |
+| created_at | TIMESTAMP | NOT NULL | Created time                      |
+| updated_at         | TIMESTAMP   | NOT NULL | Updated time                      |
 
 ---
 
 ### pricing_rules
 Represents pricing configuration based on seat type and day type.
 
-| Field | Type | Constraints | Description             |
-|---|---|---|-------------------------|
-| id | BIGINT | PK | Pricing rule identifier |
-| seat_type | ENUM | NOT NULL | SINGLE / COUPLE         |
-| day_type | ENUM | NOT NULL | WEEKDAY / WEEKEND       |
-| price | DECIMAL(10,2) | NOT NULL | Ticket price            |
-| created_at | TIMESTAMP | NOT NULL | Created time |
-| updated_at         | TIMESTAMP   | NOT NULL | Updated time                       |
+| Field       | Type | Constraints | Description                          |
+|-------------|---|---|--------------------------------------|
+| id          | BIGINT | PK | Pricing rule identifier              |
+| seat_type   | ENUM | NOT NULL | SINGLE / COUPLE                      |
+| ticket_type | ENUM | NOT NULL | ADULT / SENIOR / STUDENT_U22 / CHILD |
+| price       | DECIMAL(10,2) | NOT NULL | Ticket price                         |
+| created_at  | TIMESTAMP | NOT NULL | Created time                         |
+| updated_at  | TIMESTAMP   | NOT NULL | Updated time                         |
 
 ---
 
 ### bookings
 Stores booking transactions.
 
-| Field | Type | Constraints | Description |
-|---|---|---|---|
-| id | BIGINT | PK, AUTO_INCREMENT | Booking identifier |
-| user_id | BIGINT | FK, NOT NULL | User identifier |
-| showtime_id | BIGINT | FK, NOT NULL | Showtime identifier |
-| booking_code | VARCHAR(50) | UNIQUE, NOT NULL | Booking code |
-| total_price | DECIMAL(10,2) | NULL | Total amount |
-| status | ENUM | NOT NULL | PENDING / PAID / CANCELLED |
-| created_at | TIMESTAMP | NOT NULL | Created time |
-| updated_at         | TIMESTAMP   | NOT NULL | Updated time                       |
+| Field        | Type | Constraints        | Description                |
+|--------------|---|--------------------|----------------------------|
+| id           | BIGINT | PK, AUTO_INCREMENT | Booking identifier         |
+| user_id      | BIGINT | FK, NOT NULL       | User identifier            |
+| showtime_id  | BIGINT | FK, NOT NULL       | Showtime identifier        |
+| booking_code | VARCHAR(50) | UNIQUE             | Booking code               |
+| total_price  | DECIMAL(10,2) | NOT NULL           | Total amount               |
+| status       | ENUM | NOT NULL           | PENDING / PAID / CANCELLED |
+| created_at   | TIMESTAMP | NOT NULL           | Created time/Booked time   |
+| updated_at   | TIMESTAMP   | NOT NULL           | Updated time               |
 
 ---
 
 ### booking_seats
 Stores selected seats in a booking.
 
-| Field      | Type | Constraints | Description |
-|------------|---|---|---|
-| booking_id | BIGINT | PK, FK | Booking identifier |
-| seat_id    | BIGINT | PK, FK | Seat identifier |
-| seat_price | DECIMAL(10,2) | NOT NULL | Seat price |
-| created_at | TIMESTAMP | NOT NULL | Created time |
-| updated_at         | TIMESTAMP   | NOT NULL | Updated time                       |
+| Field       | Type | Constraints | Description |
+|-------------|---|---|---|
+| booking_id  | BIGINT | PK, FK | Booking identifier |
+| seat_id     | BIGINT | PK, FK | Seat identifier |
+| ticket_type | ENUM | NOT NULL | ADULT / SENIOR / STUDENT_U22 / CHILD |
+| seat_price  | DECIMAL(10,2) | NOT NULL | Seat price |
+| created_at  | TIMESTAMP | NOT NULL | Created time |
+| updated_at  | TIMESTAMP   | NOT NULL | Updated time                       |
 
 ---
 
@@ -182,7 +183,7 @@ Stores payment transactions.
 | id               | BIGINT        | PK, AUTO_INCREMENT | Payment identifier         |
 | booking_id       | BIGINT        | FK, NOT NULL       | Booking identifier         |
 | payment_method   | ENUM          | NOT NULL           | MOMO / VNPAY               |
-| transaction_code | VARCHAR(100)  | UNIQUE, NOT NULL   | Transaction code           |
+| transaction_code | VARCHAR(100)  | UNIQUE   | Transaction code           |
 | amount           | DECIMAL(10,2) | NOT NULL           | Payment amount             |
 | status           | ENUM          | NOT NULL           | PENDING / SUCCESS / FAILED |
 | paid_at          | TIMESTAMP     | NOT NULL           | Payment time               |
@@ -213,7 +214,7 @@ Stores payment transactions.
 | Table         | Foreign Key | References   |
 |---------------|-------------|--------------|
 | rooms         | cinema_id   | cinemas.id   |
-| users         | role_id     | roles.id     |
+| users         | role_id     | roles.id     | 
 | seats         | room_id     | rooms.id     |
 | showtimes     | movie_id    | movies.id    |
 | showtimes     | room_id     | rooms.id     |
@@ -231,24 +232,28 @@ Stores payment transactions.
 
 ---
 
-## Relationships
-- One Movie has many MovieGenres
-- One Genre has many MovieGenres
-- One Cinema has many Rooms
-- One Room has many Seats
-- One Movie has many Showtimes
-- One Room has many Showtimes
-- One User has many Bookings
-- One Showtime has many Bookings
-- One PricingRule applies to one seat type and one day type
-- One Booking has many Booking Seats
-- One Seat can belong to many Booking Seats
-- One Booking has one Payment
+## Database relationships
 
+* **cinemas -> rooms (1 - N):** 1 Rạp có nhiều Phòng chiếu.
+* **rooms -> seats (1 - N):** 1 Phòng chiếu có nhiều Ghế cố định.
+* **movies <-> genres (N - N via movie_genres):** 1 Phim thuộc nhiều Thể loại và ngược lại.
+* **movies -> showtimes (1 - N):** 1 Phim có nhiều Suất chiếu.
+* **rooms -> showtimes (1 - N):** 1 Phòng chiếu phục vụ nhiều Suất chiếu.
+* **users -> bookings (1 - N):** 1 Người dùng tạo nhiều Đơn đặt vé.
+* **showtimes -> bookings (1 - N):** 1 Suất chiếu tiếp nhận nhiều Đơn đặt vé.
+* **bookings <-> seats (N - N via booking_seats):** 1 Đơn vé chọn nhiều Ghế; 1 Ghế được đặt ở nhiều Đơn vé khác nhau.
+* **bookings <-> payments (1 - 1):** 1 Đơn vé đi kèm duy nhất 1 Giao dịch thanh toán.
+* **pricing_rules (Standalone Table):** Bảng tra cứu giá vé dựa trên `seat_type` (từ `seats`) và `ticket_type` (từ `booking_seats`).
 ---
 
-## Pricing Logic
-* Ticket price is determined based on:
-    - Seat type (SINGLE or COUPLE)
-    - Day type (WEEKDAY or WEEKEND)
-* The calculated price is stored in booking_seats.seat_price at booking time to preserve historical pricing.
+## Composite index
+
+```sql
+-- 1. Lọc Lịch chiếu theo Phim & Rạp (Tự động sắp xếp theo Khung giờ)
+CREATE INDEX idx_showtimes_movie_room_time ON showtimes (movie_id, room_id, start_time);
+
+-- 2. Xem Lịch sử đặt vé ở Trang cá nhân (Xếp theo thời gian mới nhất)
+CREATE INDEX idx_bookings_user_created ON bookings (user_id, created_at);
+
+-- 3. Render sơ đồ ghế (Lọc nhanh các ghế ĐÃ ĐẶT / ĐANG GIỮ CHỖ của suất chiếu)
+CREATE INDEX idx_bookings_showtime_status ON bookings (showtime_id, status);
